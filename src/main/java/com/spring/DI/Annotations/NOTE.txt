@@ -1,0 +1,39 @@
+NOTE:
+
+If the Class name is "Hello.java" then its Automatic Bean ID is "hello"
+If the Class name is "HELLO.java" then its Automatic Bean ID is "HELLO"
+
+@Component: Marks a class as a Spring bean.
+@Autowired: Automatically injects a dependency.
+@Primary: Marks a default bean when no @Qualifier is specified.
+
+@Component
+To indicate that a class is a Spring-managed component.
+To enable automatic bean detection and registration in the Spring IoC container without the need for XML configuration.
+
+@Autowired
+To reduce manual dependency injection and boilerplate code.
+To let Spring automatically manage dependencies between components
+
+@Qualifier
+When you have multiple beans of the same type, Spring cannot decide which bean to inject automatically.
+For example:
+    Field Injection:
+        @Autowired
+        @Qualifier("diwaliOffer")
+        private DiscountService offer;
+    Setter Injection:
+        @Autowired
+        @Qualifier("diwaliOffer")
+        public void setOffer(DiscountService offer) {
+            this.offer = offer;
+        }
+    Constructor Injection:
+        @Autowired
+        Car( @Qualifier("exchangeOffer") DiscountService offer) {
+            this.offer = offer;
+        }
+
+@Primary
+When multiple beans of the same type exist, Spring cannot determine which bean to inject automatically.
+Instead of explicitly using @Qualifier everywhere, @Primary allows you to set a default bean, simplifying dependency injection in many scenarios.

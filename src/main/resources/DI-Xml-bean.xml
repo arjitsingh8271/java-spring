@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myVehicle" class="com.spring.DI.Xml.Car">
+        <!-- Constructor Injection  -->
+        <!-- <constructor-arg ref="myOffer"/> -->
+
+        <!-- Setter Injection  -->
+        <property name="offer" ref="myOffer"/>
+
+        <!-- Injecting literal value  -->
+        <property name="brandName" value="TATA"/>
+    </bean>
+
+    <bean id="myVehicle2" class="com.spring.DI.Xml.Bike">
+
+        <!-- Setter Injection  -->
+        <property name="offer" ref="myOffer"/>
+
+        <!-- Injecting literal value  -->
+        <property name="brandName" value="TVS"/>
+    </bean>
+
+    <bean id="myOffer" class="com.spring.DI.Xml.DiwaliOffer">
+    </bean>
+
+
+    <bean id="cycle" class="com.spring.DI.Xml.Cycle">
+        <!-- Injecting reference  -->
+        <property name="cycleOffer" ref="myOffer"/>
+    </bean>
+
+</beans>
